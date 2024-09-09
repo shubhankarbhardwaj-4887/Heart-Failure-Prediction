@@ -1,38 +1,27 @@
 Steps involved in data analysis are:
 
-<br>
-
 1) Objective: Developed a predictive model to identify individuals at risk of heart failure using medical data.
-<br>
 
 2) Data Collection: I have access to a Kaggle dataset that has comprehensive data on about 1,000 people with cardiac problems. Numerous patient characteristics, including age, gender, blood pressure, cholesterol, heart rate, and other health markers, are included in the data. Usually, this dataset is utilised for predictive modelling and exploratory data analysis to find trends or risk factors related to heart disease. It provides a chance to examine the connections between many factors and the consequences of heart disease, enabling more in-depth understanding of patient health patterns and possible preventative actions.
-<br>
 
 3) Data Cleaning: 
-<br>
 A) Eliminate redundant transactions.
-<br>
-B)Use average values to fill in the empty age fields for customers' lacking data.
-<br>
+B) Use average values to fill in the empty age fields for customers' lacking data.
 C) Ensure that date formats are uniform.
-<br>
 
 4) Data Exploration (Exploratory Data Analysis - EDA): Understanding the structure, patterns, and relationships within a dataset is the first stage in data analysis, or exploratory data analysis (EDA). It entails examining the data to obtain understanding and pinpoint possible study areas.
-<br> 
 
 5) Data Visualization: The process of producing graphs, charts, and other visual representations to effectively convey data insights and conclusions to others is known as data visualisation. Data visualisation seeks to simplify and show complex data in a form that is intelligible for reports or stakeholders, whereas EDA employs visual tools for investigation.
-<br>
-
 
 6) Model Building: The data analyst must create data sets during this stage of the project in order to use them for production, testing, and training. With the use of these data sets, data sanalyst can create and train an analytical technique while reserving some data for model testing. In data analytics, developing a model aims to achieve high accuracy on training data as well as generalisation and good performance on fresh, unknown data.
-<br>
+
 For the data I have used 3 machine learning algorithms and they are:
-<br>
+
 1) Logistic Regression
-<br>
+
 2) Gaussian Naive Bayes
-<br>
+
 3) Support Vector Machine(SVM)
-<br>
+
 
 These are all classification algorithms that I have employed as the data that needs to be tested (heart disease) is binary.
