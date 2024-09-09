@@ -8,6 +8,7 @@ Objective: Developed a predictive model to identify individuals at risk of heart
 
 <br>
 Features:
+<br>
 1) Employs machine learning algorithms to forecast the risk of heart failure, achieving a prediction accuracy of 92%.
 2) Includes critical features like age, blood pressure, cholesterol levels, and medical history to improve prediction precision.
 3) Processes around 1000 patient records, applying data cleaning and normalization to ensure high-quality training data.
