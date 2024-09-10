@@ -1,0 +1,20 @@
+#Seperating input features and output features
+
+X = data.drop(columns=['HeartDisease'])
+y = data['HeartDisease']
+
+# Splitting the data for training and testing
+
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=25)
+print(f'x_train shape: {x_train.shape}')
+print(f'y_train shape: {y_train.shape}')
+print(f'x_test shape : {x_test.shape}')
+print(f'y_test shape : {y_test.shape}')
+
+# Applying One Hot Encoding and standardization using column transformer
+
+transformer = ColumnTransformer(transformers = [('onehot', OneHotEncoder(sparse=False, drop='first'), [1,2,6,8,10]),
+                                                ('scaler', StandardScaler(), [0,3,4,5,7,9])],
+                                      remainder = 'passthrough')
+x_train = transformer.fit_transform(x_train)
+x_test = transformer.transform(x_test)
