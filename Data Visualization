@@ -1,0 +1,64 @@
+#Count Plot(for discrete data)
+
+plt.style.use(plt.style.available[19])
+i = 1
+plt.figure(figsize=(18,20)) 
+for feature in discrette_feature[:-1]:
+    plt.subplot(4, 2, i)
+    sns.countplot(x=data[feature], hue=data.HeartDisease)
+    i += 1
+    
+plt.show()
+
+#Result: Sex: Male is having more heart disease compared to female... Chest pain type ASY: Asymptomatic having more heart disease compared to others  ST_Slope: Flat is having more compared to others... And peoples with ST_Slope: up, ExerciseAngina: No and chest pain type: ATA (ATypical angina) mostly don't have heart disease
+
+#Histogram and kde (for continuous data)
+
+plt.style.use('fivethirtyeight')
+i = 1
+plt.figure(figsize=(18,16)) 
+for feature in continuous_feature:
+    plt.subplot(3, 2, i)
+    sns.histplot(x=data[feature],kde=True,bins=50, hue=data.HeartDisease)
+    plt.xlabel(feature,size=12)
+    plt.ylabel("Density",size=12)
+    i += 1
+    
+plt.show()
+
+#Result: People who are aged more than 50 and having MaxHR (maximum Heart Rate) less than 140 and also have more Oldpeak is more likely to have heart disease.
+
+#Scatter Plot(for continuous data)
+
+i = 1
+n = 1
+plt.figure(figsize=(18,24)) 
+for feature in continuous_feature:
+    for i_ in continuous_feature[n:]:
+        plt.subplot(5, 2, i)
+        sns.scatterplot(x=data[feature],y=data[i_], s=80, hue=data.HeartDisease)
+        plt.xlabel(feature,size=12)
+        plt.ylabel(i_,size=12)
+        i += 1
+    n+=1
+plt.show()  
+
+#Box plot(for continuous data)
+plt.style.use('fivethirtyeight')
+i = 1
+plt.figure(figsize=(18,16)) 
+for feature in continuous_feature:
+    plt.subplot(3, 2, i)
+    sns.boxplot(data=data, x=feature, hue='HeartDisease', color='darkcyan')
+    plt.xlabel(feature,size=12)
+    #plt.ylabel("Density",size=12)
+    i += 1
+    
+plt.show()
+
+#Heat Map(for continuous data)
+plt.figure(figsize=(14,8))
+sns.heatmap(data.corr(),mask=np.triu(data.corr()), annot=True, cmap='YlGnBu',linewidth=2)
+plt.show()
+
+#Result: Oldpeak and Heart Disease have strong positive correlation, whereas maxHR (maximum Heart Rate) and Age have negative correlation (younger people have more heart rate compared to older people)
