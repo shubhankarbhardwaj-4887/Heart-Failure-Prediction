@@ -1,0 +1,65 @@
+# Defining accuracies and cross validation scrores
+
+def do_prediction(classifier):
+    
+    # training the classifier on the dataset
+    classifier.fit(x_train, y_train)
+    
+    #Do prediction and evaluting the prediction
+    prediction = classifier.predict(x_test)
+    cross_validation_score = cross_val(x_train,y_train, classifier)
+    accuracy = accuracy_score(y_test, prediction)
+    con_metrix = confusion_matrix(y_test, prediction)
+    
+    return accuracy,con_metrix, cross_validation_score
+
+def cross_val(x_train, y_train, classifier):
+    
+    # Applying k-Fold Cross Validation
+    accuracies = cross_val_score(estimator = classifier, X = x_train, y = y_train, cv = 5)
+    return accuracies.mean()
+
+#Logistic Regression
+
+logistic_reg = LogisticRegression()
+accuracy,con_metrix, cross_validation_score = do_prediction(logistic_reg)
+
+plt.figure(figsize=(9,6))
+sns.heatmap(con_metrix, annot=True, cmap='PuBuGn')
+plt.title('Confusion Matrix for logistic regression',size=14)
+plt.show()
+print('Logistic Regression Performace on the training data have an accuracy score of {}'.format((cross_validation_score *100).round()) )
+print('Logistic Regression Performace on the testing data have an accuracy score of {}'.format((accuracy *100).round()) )
+
+#Result: Logistic Regression Performace on the training data have an accuracy score of 86.0
+Logistic Regression Performace on the testing data have an accuracy score of 87.0
+
+#Gaussion Naive Bayes
+
+gaussian = GaussianNB()
+accuracy,con_metrix, cross_validation_score = do_prediction(gaussian)
+
+plt.figure(figsize=(9,6))
+sns.heatmap(con_metrix, annot=True, cmap='PuBuGn')
+plt.title('Confusion Matrix for Naive Bayes',size=14)
+plt.show()
+print('Naive Bayes Performace on the training data have an accuracy score of {}'.format((cross_validation_score *100).round()) )
+print('Naive Bayes Performace on the testing data have an accuracy score of {}'.format((accuracy *100).round()) )
+
+#Result: Naive Bayes Performace on the training data have an accuracy score of 86.0
+Naive Bayes Performace on the testing data have an accuracy score of 84.0
+
+#Support Vector Machine
+
+svm = SVC()
+accuracy,con_metrix, cross_validation_score = do_prediction(svm)
+
+plt.figure(figsize=(9,6))
+sns.heatmap(con_metrix, annot=True, cmap='PuBuGn')
+plt.title('Confusion Matrix for SVM',size=14)
+plt.show()
+print('Support Vector Machine Performace on the training data have an accuracy score of {}'.format((cross_validation_score *100).round()) )
+print('Support Vector Machine Performace on the testing data have an accuracy score of {}'.format((accuracy *100).round()) )
+
+#Result: Support Vector Machine Performace on the training data have an accuracy score of 86.0
+Support Vector Machine Performace on the testing data have an accuracy score of 88.0
