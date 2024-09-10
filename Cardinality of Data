@@ -1,0 +1,27 @@
+#Here we have different types of data, such as categorical, numerical (discrette and continuous) 
+#Numerical features: Age, RestingBP, cholesterol, FastingBS, MaxHR, Oldpeak, Heart Disease(Target) 
+#Discrette Features: Sex, ChestPainType, FastingBS, RestingECG, ExerciseAngina, ST_Slope Continuous features: Age, RestingBP, Cholesterol, MaxHR, Oldpeak
+
+color = plt.cm.copper(np.linspace(0, 1, 12))
+plt.figure(figsize=(14,5))
+data.nunique().plot(kind='bar', width=.8, color=color)
+plt.title('No of unique values in the dataset', size=16)
+plt.show()
+print(data.nunique())
+
+# Output
+
+Age                50
+Sex                 2
+ChestPainType       4
+RestingBP          67
+Cholesterol       222
+FastingBS           2
+RestingECG          3
+MaxHR             119
+ExerciseAngina      2
+Oldpeak            53
+ST_Slope            3
+HeartDisease        2
+dtype: int64
+
